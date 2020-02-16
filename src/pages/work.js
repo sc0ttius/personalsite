@@ -13,12 +13,12 @@ const P = styled.p`
   color: var(--grey);
 `;
 
-const IndexPage = ({location}) => (
+const Work = ({location}) => (
   <Layout path={location.pathname}>
-    <SEO title="Home" />
-    <H2>Index title</H2>
-    <P>Index page text.</P>
+    <SEO title="Work" />
+    <H2>Work.</H2>
+    <P>Work page text.</P>
   </Layout>
 )
 
-export default IndexPage
+export default Work

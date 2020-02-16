@@ -7,6 +7,7 @@
 
 import React from "react"
 import PropTypes from "prop-types"
+import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 
 import Header from "./header"
@@ -20,11 +21,20 @@ const StyledWrapper = styled.div`
   padding: 0 2rem 1.45rem;
 `;
 
-const Layout = ({ children }) => {
-  const title = 'Scott Gustas';
+const Layout = ({ children, path }) => {
+  const { site } = useStaticQuery(graphql`
+    query {
+      site {
+        id
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
   return (
     <>
-      <Header siteTitle={title} />
+      <Header siteTitle={site.siteMetadata.title} path={path} />
       <StyledWrapper>
         <main>{children}</main>
       </StyledWrapper>
@@ -35,6 +45,7 @@ const Layout = ({ children }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  path: PropTypes.string
 }
 
 export default Layout

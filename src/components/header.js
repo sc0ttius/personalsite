@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import React from "react"
 import styled from "styled-components"
 
+import Menu from "./menu"
 import Icons from "./icons"
 
 const StyledHeader = styled.header`
@@ -25,20 +26,27 @@ const StyledLink = styled(Link)`
   color: var(--dark-grey);
   text-decoration: none;
 `;
+const RightHeader = styled.div`
+  display: flex;
+`;
 
-const Header = ({ siteTitle }) => (
+const Header = ({ siteTitle, path }) => (
   <StyledHeader>
     <Wrapper>
       <Title>
         <StyledLink to="/">{siteTitle}</StyledLink>
       </Title>
-      <Icons />
+      <RightHeader>
+        <Menu path={path} />
+        <Icons />
+      </RightHeader>
     </Wrapper>
   </StyledHeader>
 )
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
+  path: PropTypes.string
 }
 
 Header.defaultProps = {

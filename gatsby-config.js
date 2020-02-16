@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Scott Gustas' Personal Portfolio`,
-    description: `An exploration into the work of Scott Gustas.`,
-    author: `Scott Gustas`,
+    title: `Scott J Gustas`,
+    description: `An exploration into the work of Scott.`,
+    author: `Scott J Gustas`,
     links: {
       github: `https://github.com/sc0ttius`,
       linkedin: `https://www.linkedin.com/in/scottgustas/`,
