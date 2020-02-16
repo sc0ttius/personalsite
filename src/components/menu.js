@@ -21,13 +21,13 @@ const StyledLink = styled(Link)`
 const Menu = ({ path }) => {
   const getMenuItems = () => {
     const menuItems = ['home', 'work'];
-    const menuArray = menuItems.map( item => {
+    const menuArray = menuItems.map( (item, i) => {
       let style = {};
       const pathname = ( item === 'home' ) ? '/' : `/${ item }`;
       if ( path === pathname ) {
         style = {fontWeight: '600'};
       }
-      return <StyledLink to={pathname} style={style}>{item}</StyledLink>
+      return <StyledLink key={i} to={pathname} style={style}>{item}</StyledLink>
     } )
     return menuArray
   }
