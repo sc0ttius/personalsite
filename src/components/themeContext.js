@@ -8,7 +8,7 @@ export const useTheme = () => React.useContext(ThemeToggleContext);
 const ToggleThemeProvider = ({ children }) => {
 
   const [themeState, setThemeState] = useState({
-    mode: 'light'
+    mode:  ( typeof window !== 'undefined' && window && localStorage.getItem('mode') ) || 'light'
   });
 
   const [isFirstRender, setIsFirstRender] = useState(true);
