@@ -13,8 +13,8 @@ const P = styled.p`
   color: var(--grey);
 `;
 
-const Work = ({location}) => (
-  <Layout path={location.pathname}>
+const Work = () => (
+  <Layout>
     <SEO title="Work" />
     <H2>Work.</H2>
     <P>Work page text.</P>

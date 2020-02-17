@@ -13,8 +13,8 @@ const P = styled.p`
   color: var(--grey);
 `;
 
-const IndexPage = ({location}) => (
-  <Layout path={location.pathname}>
+const IndexPage = () => (
+  <Layout>
     <SEO title="Home" />
     <H2>Index title</H2>
     <P>Index page text.</P>

@@ -34,7 +34,7 @@ const MainWrapper = styled.div`
   padding: 0 2rem 1.45rem;
 `;
 
-const Layout = ({ children, path }) => {
+const Layout = ({ children }) => {
   const { site } = useStaticQuery(graphql`
     query {
       site {
@@ -49,7 +49,7 @@ const Layout = ({ children, path }) => {
     <ToggleThemeProvider>
       <GlobalStyle />
       <StyledWrapper>
-        <Header siteTitle={site.siteMetadata.title} path={path} />
+        <Header siteTitle={site.siteMetadata.title} />
         <MainWrapper>
           <main>{children}</main>
         </MainWrapper>
@@ -60,8 +60,7 @@ const Layout = ({ children, path }) => {
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-  path: PropTypes.string
+  children: PropTypes.node.isRequired
 }
 
 export default Layout

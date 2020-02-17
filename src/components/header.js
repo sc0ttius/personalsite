@@ -36,7 +36,7 @@ const RightHeader = styled.div`
 `;
 
 const Header = (props) => {
-  const { siteTitle, path, theme } = props;
+  const { siteTitle, theme } = props;
   return (
     <StyledHeader>
       <Wrapper>
@@ -44,7 +44,7 @@ const Header = (props) => {
           <StyledLink to="/">{siteTitle}</StyledLink>
         </Title>
         <RightHeader>
-          <Menu path={path} />
+          <Menu />
           <Toggle />
           <Icons theme={theme.mode} />
         </RightHeader>
@@ -54,8 +54,7 @@ const Header = (props) => {
 }
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
-  path: PropTypes.string
+  siteTitle: PropTypes.string
 }
 
 Header.defaultProps = {

@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
 import styled from "styled-components"
+import { Location } from "@reach/router"
 
 const StyledNav = styled.nav`
   display: flex;
@@ -18,29 +18,29 @@ const StyledLink = styled(Link)`
   text-transform: uppercase;
 `;
 
-const Menu = ({ path }) => {
-  const getMenuItems = () => {
-    const menuItems = ['home', 'work'];
-    const menuArray = menuItems.map( (item, i) => {
-      let style = {};
-      const pathname = ( item === 'home' ) ? '/' : `/${ item }`;
-      if ( path === pathname ) {
-        style = {fontWeight: '600'};
-      }
-      return <StyledLink key={i} to={pathname} style={style}>{item}</StyledLink>
-    } )
-    return menuArray
-  }
-
-  return (
-    <StyledNav>
-      { getMenuItems() }
-    </StyledNav>
-  )
+const getMenuItems = (location) => {
+  const menuItems = ['home', 'work'];
+  const menuArray = menuItems.map( (item, i) => {
+    let style = {};
+    const pathname = ( item === 'home' ) ? '/' : `/${ item }`;
+    if ( location.pathname === pathname ) {
+      style = {fontWeight: '600'};
+    }
+    return <StyledLink key={i} to={pathname} style={style}>{item}</StyledLink>
+  } )
+  return menuArray
 }
 
-Menu.propTypes = {
-  path: PropTypes.string
+const Menu = () => {
+  return (
+    <Location>
+       {({ location }) => (
+        <StyledNav>
+          { getMenuItems(location) }
+        </StyledNav>
+       )}
+    </Location>
+  )
 }
 
 export default Menu
