@@ -8,11 +8,12 @@ export const useTheme = () => React.useContext(ThemeToggleContext);
 const ToggleThemeProvider = ({ children }) => {
 
   const [themeState, setThemeState] = React.useState({
-    mode: 'light'
+    mode: localStorage.getItem('mode') || 'light'
   });
 
   const toggle = () => {
     const mode = (themeState.mode === 'light' ? `dark` : `light`);
+    localStorage.setItem('mode', mode);
     setThemeState({ mode: mode });
   };
 
