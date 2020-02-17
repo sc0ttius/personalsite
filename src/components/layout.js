@@ -20,6 +20,7 @@ const StyledWrapper = styled.div`
   grid-template-rows: auto 1fr auto;
   position: absolute;
   width: 100%;
+  transition: background-color 0.8s ease;
   background-color: ${props => props.theme.inverse};
   color: ${props => props.theme.primary}
 `;
