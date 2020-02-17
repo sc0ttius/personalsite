@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 import Icons from "./icons"
 
-const StyledHeader = styled.header`
+const StyledHeader = styled.footer`
   background: var(--dark-grey);
 `;
 const Wrapper = styled.div`
