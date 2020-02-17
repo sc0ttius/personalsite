@@ -46,7 +46,7 @@ const Header = (props) => {
         <RightHeader>
           <Menu />
           <Toggle />
-          <Icons theme={theme.mode} />
+          <Icons theme={theme.isDark ? 'dark' : 'light'} />
         </RightHeader>
       </Wrapper>
     </StyledHeader>

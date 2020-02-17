@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   html {
     font-family: 'Muli', Arial, sans-serif;
     font: 18px;
@@ -58,5 +58,3 @@ const GlobalStyle = createGlobalStyle`
     border-style: none;
   }
 `;
-
-export default GlobalStyle;

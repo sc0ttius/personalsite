@@ -10,7 +10,7 @@ const H2 =styled.h2`
 `;
 
 const P = styled.p`
-  color: var(--grey);
+  color: ${props => props.theme.primary};
 `;
 
 const Work = () => (

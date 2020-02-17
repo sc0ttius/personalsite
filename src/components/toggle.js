@@ -1,6 +1,6 @@
-import React from "react"
-import { useTheme } from './themeContext';
-import styled, { withTheme } from 'styled-components';
+import React, { useContext } from "react"
+import styled from "styled-components";
+import { ThemeManagerContext } from "gatsby-styled-components-dark-mode"
 
 const ThemeButton = styled.button`
   margin: 0;
@@ -9,17 +9,15 @@ const ThemeButton = styled.button`
   text-transform: uppercase;
 `;
 
+const Toggle = () => {
+  const themeContext = useContext(ThemeManagerContext)
+  const darkMode = themeContext.isDark ? 'On' : 'Off';
 
-
-const Toggle = (props) => {
-  const { theme } = props;
-  const isDarkMode = ( theme.mode === 'light' ) ? 'Off' : 'On';
-  const themeToggle = useTheme();
   return (
-    <ThemeButton onClick={() => themeToggle.toggle()}>
-      <strong>Dark Mode:</strong> {isDarkMode}
+    <ThemeButton onClick={() => themeContext.toggleDark()}>
+      <strong>Dark Mode:</strong> {darkMode}
     </ThemeButton>
   );
 }
 
-export default withTheme(Toggle);
+export default Toggle;

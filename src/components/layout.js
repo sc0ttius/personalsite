@@ -8,14 +8,11 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import styled from "styled-components"
+import styled, { withTheme } from "styled-components"
+import { GlobalStyle } from "../styles/global"
 
-import ToggleThemeProvider from "./themeContext"
 import Header from "./header"
 import Footer from "./footer"
-import GlobalStyle from "../styles/global"
-
-import { backgroundColor, textColor } from "../styles/theme"
 
 const StyledWrapper = styled.div`
   min-height: 100%;
@@ -23,9 +20,8 @@ const StyledWrapper = styled.div`
   grid-template-rows: auto 1fr auto;
   position: absolute;
   width: 100%;
-  background-color: ${backgroundColor};
-  transition: background-color 0.7s ease;
-  color: ${textColor}
+  background-color: ${props => props.theme.inverse};
+  color: ${props => props.theme.primary}
 `;
 
 const MainWrapper = styled.div`
@@ -35,7 +31,8 @@ const MainWrapper = styled.div`
   padding: 0 2rem 1.45rem;
 `;
 
-const Layout = ({ children }) => {
+const Layout = (props) => {
+  const { children } = props;
   const { site } = useStaticQuery(graphql`
     query {
       site {
@@ -47,7 +44,7 @@ const Layout = ({ children }) => {
     }
   `)
   return (
-    <ToggleThemeProvider>
+    <>
       <GlobalStyle />
       <StyledWrapper>
         <Header siteTitle={site.siteMetadata.title} />
@@ -56,7 +53,7 @@ const Layout = ({ children }) => {
         </MainWrapper>
         <Footer />
       </StyledWrapper>
-    </ToggleThemeProvider>
+    </>
   )
 }
 
@@ -64,4 +61,4 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired
 }
 
-export default Layout
+export default withTheme(Layout)

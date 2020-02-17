@@ -22,7 +22,7 @@ const getMenuItems = (location) => {
   const menuItems = ['home', 'work'];
   const menuArray = menuItems.map( (item, i) => {
     let style = {};
-    const pathname = ( item === 'home' ) ? '/' : `/${ item }`;
+    const pathname = ( item === 'home' ) ? '/' : `/${ item }/`;
     if ( location.pathname === pathname ) {
       style = {fontWeight: '600'};
     }

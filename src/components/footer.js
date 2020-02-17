@@ -1,12 +1,11 @@
 import React from "react"
 import styled from "styled-components"
-import colors from '../styles/colors'
 
 import Icons from "./icons"
 
-const StyledHeader = styled.footer`
-  background: ${colors.light.primary};
-  color: ${colors.light.inverse};
+const StyledFooter = styled.footer`
+  background: ${props => props.theme.isDark ? props.theme.inverse : props.theme.primary};
+  color: ${props => props.theme.isDark ? props.theme.primary : props.theme.inverse};
 `;
 const Wrapper = styled.div`
   margin: 0 auto;
@@ -18,21 +17,21 @@ const Wrapper = styled.div`
 const Copyright = styled.p`
   margin: 0;
   padding: 0;
-  color: var(--white);
+  color: ${props => props.theme.isDark ? props.theme.primary : props.theme.inverse };
   font-size: 0.8rem;
 `;
 
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
-    <StyledHeader>
+    <StyledFooter>
       <Wrapper>
         <Copyright>
           &copy; { year } Scott Gustas
         </Copyright>
         <Icons theme='dark' />
       </Wrapper>
-    </StyledHeader>
+    </StyledFooter>
   )
 }
 
