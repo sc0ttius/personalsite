@@ -8,12 +8,14 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import styled, { ThemeProvider } from "styled-components"
+import styled from "styled-components"
 
+import ToggleThemeProvider from "./themeContext"
 import Header from "./header"
 import Footer from "./footer"
-import "../styles/colors.css"
-import "../styles/base.css"
+import GlobalStyle from "../styles/global"
+
+import { backgroundColor, textColor } from "../styles/theme"
 
 const StyledWrapper = styled.div`
   min-height: 100%;
@@ -21,6 +23,8 @@ const StyledWrapper = styled.div`
   grid-template-rows: auto 1fr auto;
   position: absolute;
   width: 100%;
+  background: ${backgroundColor};
+  color: ${textColor}
 `;
 
 const MainWrapper = styled.div`
@@ -42,7 +46,8 @@ const Layout = ({ children, path }) => {
     }
   `)
   return (
-    <ThemeProvider theme={{mode: 'light'}}>
+    <ToggleThemeProvider>
+      <GlobalStyle />
       <StyledWrapper>
         <Header siteTitle={site.siteMetadata.title} path={path} />
         <MainWrapper>
@@ -50,7 +55,7 @@ const Layout = ({ children, path }) => {
         </MainWrapper>
         <Footer />
       </StyledWrapper>
-    </ThemeProvider>
+    </ToggleThemeProvider>
   )
 }
 

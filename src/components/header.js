@@ -5,6 +5,7 @@ import styled from "styled-components"
 
 import Menu from "./menu"
 import Icons from "./icons"
+import Toggle from "./toggle"
 
 const StyledHeader = styled.header`
   background: var(--white);
@@ -38,6 +39,7 @@ const Header = ({ siteTitle, path }) => (
       </Title>
       <RightHeader>
         <Menu path={path} />
+        <Toggle />
         <Icons />
       </RightHeader>
     </Wrapper>
