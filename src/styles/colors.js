@@ -8,7 +8,7 @@ const colors = {
     inverseLight: '#FCFFF2'
   },
   dark: {
-    primary: '##fefefe',
+    primary: '#fefefe',
     primaryLight: '#FCFFF2',
     secondary: '',
     secondaryLight: '',

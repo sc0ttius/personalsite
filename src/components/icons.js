@@ -12,11 +12,12 @@ import soundcloudIconDark from "../images/soundcloud-dark.svg"
 const IconList = styled.ul`
   list-style-type: none;
   display: flex;
-  margin-bottom: 0;
+  margin: 0;
+  padding: 0;
 `;
 const IconItem = styled.li`
+  margin: 0;
   margin-left: calc( 1.45rem / 2 );
-  margin-bottom: 0;
   line-height: 0;
 `;
 const IconItemLink = styled.a``;
@@ -40,15 +41,15 @@ const Icons = ({theme}) => {
   const getIcon = (type, theme) => {
     switch ( type ) {
       case 'github':
-        if ( theme === 'light' )
+        if ( theme === 'dark' )
           return <img src={githubIconLight} alt="Link to Github" />
         return <img src={githubIconDark} alt="Link to Github" />
       case 'linkedin':
-        if ( theme === 'light' )
+        if ( theme === 'dark' )
           return <img src={linkedinIconLight} alt="Link to LinkedIn" />
         return <img src={linkedinIconDark} alt="Link to LinkedIn" />
       case 'soundcloud':
-        if ( theme === 'light' )
+        if ( theme === 'dark' )
           return <img src={soundcloudIconLight} alt="Link to SoundCloud" />
         return <img src={soundcloudIconDark} alt="Link to SoundCloud" />
       default:
@@ -76,6 +77,5 @@ const Icons = ({theme}) => {
     </IconList>
   )
 }
-
 
 export default Icons

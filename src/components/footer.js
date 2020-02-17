@@ -1,10 +1,12 @@
 import React from "react"
 import styled from "styled-components"
+import colors from '../styles/colors'
 
 import Icons from "./icons"
 
 const StyledHeader = styled.footer`
-  background: var(--dark-grey);
+  background: ${colors.light.primary};
+  color: ${colors.light.inverse};
 `;
 const Wrapper = styled.div`
   margin: 0 auto;
@@ -28,7 +30,7 @@ const Footer = () => {
         <Copyright>
           &copy; { year } Scott Gustas
         </Copyright>
-        <Icons theme='light' />
+        <Icons theme='dark' />
       </Wrapper>
     </StyledHeader>
   )

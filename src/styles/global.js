@@ -33,14 +33,17 @@ const GlobalStyle = createGlobalStyle`
   a, button {
     border: none;
     outline: none;
+    color: inherit;
     background-color: transparent;
     -webkit-text-decoration-skip: objects;
     cursor: pointer;
   }
   a:active,
   a:hover,
+  a:visited,
   button:active,
   button:hover {
+    color: inherit;
     outline-width: 0;
   }
   img {
