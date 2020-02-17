@@ -23,7 +23,8 @@ const StyledWrapper = styled.div`
   grid-template-rows: auto 1fr auto;
   position: absolute;
   width: 100%;
-  background: ${backgroundColor};
+  background-color: ${backgroundColor};
+  transition: background-color 0.7s ease;
   color: ${textColor}
 `;
 
